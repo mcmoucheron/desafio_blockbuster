@@ -5,11 +5,12 @@
   <%= link_to "New movie", new_movie_path %>
     <div id="movies">
     <div class="row">
-      <% @movies.each do |movie| %>
-        <h2><%= movie.name %></h2>
-        <%= image_tag("https://fakepicture.com/man", alt: "Fake picture of a man") %>
-      <% end %>
+
+    <% @movies.each_with_index do |movie, index| %>
+      <h2><%= movie.name %></h2>
+      <% photo_index = index % 10 + 1 %>
+      <%= image_tag("#{photo_index}.jpg", alt: "Photo #{photo_index}") %>
+    <% end %>
     </div>
   </div>
 </div>
-
